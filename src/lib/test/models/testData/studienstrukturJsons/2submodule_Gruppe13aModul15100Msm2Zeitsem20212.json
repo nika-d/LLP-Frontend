@@ -1,0 +1,153 @@
+{
+	"module": [
+		{
+			"id": 15100,
+			"studiengangId": 6,
+			"zeitsemesterInt": 20212,
+			"zeitsemester": "WiSe2021",
+			"fachsemester": 1,
+			"titel": "Biologie der Zelle",
+			"code": "M03"
+		}
+	],
+	"submodule": [
+		{
+			"id": 1510003,
+			"modulId": 15100,
+			"ordinal": 3,
+			"titel": "Modulwoche 3"
+		},
+		{
+			"id": 1510004,
+			"modulId": 15100,
+			"ordinal": 4,
+			"titel": "Modulwoche 4"
+		}
+	],
+	"veranstaltungen": [
+		{
+			"id": 76959,
+			"modulId": 15100,
+			"submodulId": 1510003,
+			"lehrformatId": 818,
+			"nummer": 1313,
+			"kurzTitel": "POL",
+			"langTitel": "POL M03-3"
+		},
+		{
+			"id": 76967,
+			"modulId": 15100,
+			"submodulId": 1510003,
+			"lehrformatId": 825,
+			"nummer": 222,
+			"kurzTitel": "Seminar 2",
+			"langTitel": "Zytoskelett der quergestreiften Skelettmuskulatur und hieraus abgeleitete Myopathien"
+		},
+		{
+			"id": 76972,
+			"modulId": 15100,
+			"submodulId": 1510004,
+			"lehrformatId": 818,
+			"nummer": 502,
+			"kurzTitel": "POL",
+			"langTitel": "POL M03-4"
+		}
+	],
+	"termine": [
+		{
+			"id": "20212-1313-1._FS_13a-14a-1",
+			"veranstaltungsId": 76959,
+			"raumId": null,
+			"start": "2022-01-10T14:30:00+01:00",
+			"ende": "2022-01-10T16:00:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 54510,
+					"personId": "LfzCBQmtPuM6COwe6gP1uiyBhfE=",
+					"einrichtungsId": 128
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-1313-1._FS_13a-14a-2",
+			"veranstaltungsId": 76959,
+			"raumId": null,
+			"start": "2022-01-17T13:00:00+01:00",
+			"ende": "2022-01-17T14:30:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 54511,
+					"personId": "LfzCBQmtPuM6COwe6gP1uiyBhfE=",
+					"einrichtungsId": 128
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-222-1._FS_11b-14b-1",
+			"veranstaltungsId": 76967,
+			"raumId": null,
+			"start": "2022-01-13T12:15:00+01:00",
+			"ende": "2022-01-13T13:45:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "11b-14b",
+			"lehrTaetigkeiten": [
+				{
+					"id": 63039,
+					"personId": "GtewiDQDr9FWk1VUNHs/H08pzYg=",
+					"einrichtungsId": 84
+				},
+				{
+					"id": 487542,
+					"personId": "1sZV79+BQhN/9NxirQ999IELjuY=",
+					"einrichtungsId": 12
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": []
+		},
+		{
+			"id": "20212-502-1._FS_13a-14a-1",
+			"veranstaltungsId": 76972,
+			"raumId": null,
+			"start": "2022-01-17T14:30:00+01:00",
+			"ende": "2022-01-17T16:00:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 72422,
+					"personId": "LfzCBQmtPuM6COwe6gP1uiyBhfE=",
+					"einrichtungsId": 128
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-502-1._FS_13a-14a-2",
+			"veranstaltungsId": 76972,
+			"raumId": null,
+			"start": "2022-01-24T13:00:00+01:00",
+			"ende": "2022-01-24T14:30:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 72423,
+					"personId": "LfzCBQmtPuM6COwe6gP1uiyBhfE=",
+					"einrichtungsId": 128
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		}
+	]
+}

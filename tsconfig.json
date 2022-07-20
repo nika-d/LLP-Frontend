@@ -1,0 +1,14 @@
+{
+	"extends": "./.svelte-kit/tsconfig.json",
+	"compilerOptions": {
+		"types": ["vitest/globals"],
+		"target": "ES6",
+		"module": "es6",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"importsNotUsedAsValues": "remove",
+		"sourceMap": true
+	},
+	"allowSyntheticDefaultImports": true
+}

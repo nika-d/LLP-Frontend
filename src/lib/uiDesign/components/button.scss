@@ -1,0 +1,63 @@
+@use '../basics/colors' as colors;
+@use '../basics/sizing' as sizing;
+@use '../basics/animation' as animation;
+@use '../basics/bootstrapConfig' as *;
+
+.btn {
+	// "button contained"
+	@extend .text-white;
+	box-shadow: none !important;
+	outline: none !important;
+	&:focus,
+	&:focus-visible,
+	&:focus-within {
+		box-shadow: none !important;
+		outline: none !important;
+	}
+	background-color: colors.$blue_pantone_293_100;
+	span.material-icons {
+		@extend .d-inline-block;
+		vertical-align: text-top;
+		font-size: add($btn-font-size, sizing.$button_icon_additional_size);
+	}
+	&:active {
+		background-color: colors.$blue_pantone_293_070;
+	}
+	transition: background-color animation.$transition_medium_duration
+		animation.$transition_default_easing;
+}
+
+.btn-ghost {
+	color: colors.$blue_pantone_293_100 !important;
+	background-color: $white !important;
+	&:active {
+		background-color: colors.$blue_pantone_293_012 !important;
+	}
+}
+
+.btn-outline-primary {
+	// "button outlined"
+	@extend .btn-ghost;
+	&:hover {
+		background-color: $white;
+	}
+}
+
+.btn-lg span.material-icons {
+	font-size: add($btn-font-size-lg, sizing.$button_icon_additional_size);
+}
+
+.btn-sm span.material-icons {
+	font-size: add($btn-font-size-sm, sizing.$button_icon_additional_size);
+}
+
+.btn-xs {
+	@extend .text-center;
+	height: sizing.$compact_input_total_height !important;
+	width: sizing.$compact_input_total_height !important;
+	padding: 0 !important;
+	line-height: normal !important;
+	span.material-icons {
+		font-size: $btn-font-size !important;
+	}
+}

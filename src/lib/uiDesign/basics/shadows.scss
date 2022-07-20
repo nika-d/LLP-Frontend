@@ -1,0 +1,5 @@
+@use 'colors' as *;
+
+@mixin c-box-shadow {
+	box-shadow: 0px 1.5px 6px $grey_pantone_430_100;
+}

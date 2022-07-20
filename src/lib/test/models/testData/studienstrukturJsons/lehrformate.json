@@ -1,0 +1,50 @@
+[
+	{
+		"id": 832,
+		"bezeichnungLang": "POL"
+	},
+	{
+		"id": 302,
+		"bezeichnungLang": "Fachvorlesung"
+	},
+	{
+		"id": 838,
+		"bezeichnungLang": "Praktikum (Großgruppe)"
+	},
+	{
+		"id": 814,
+		"bezeichnungLang": "Untersuchungskurs"
+	},
+	{
+		"id": 330,
+		"bezeichnungLang": "Moduleinführung"
+	},
+	{
+		"id": 303,
+		"bezeichnungLang": "Patientenvorstellung (Vorlesung)"
+	},
+	{
+		"id": 301,
+		"bezeichnungLang": "Interdisziplinäre Vorlesung"
+	},
+	{
+		"id": 833,
+		"bezeichnungLang": "Fachseminar"
+	},
+	{
+		"id": 835,
+		"bezeichnungLang": "Seminar mit klinischem Bezug"
+	},
+	{
+		"id": 676,
+		"bezeichnungLang": "Präparierkurs"
+	},
+	{
+		"id": 818,
+		"bezeichnungLang": "POL"
+	},
+	{
+		"id": 825,
+		"bezeichnungLang": "Integriertes interdisziplinäres Seminar"
+	}
+]

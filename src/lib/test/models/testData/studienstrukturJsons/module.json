@@ -1,0 +1,20 @@
+[
+	{
+		"id": "15137",
+		"studiengangId": "6",
+		"zeitsemesterInt": 20212,
+		"zeitsemester": "WiSe2021",
+		"fachsemester": 3,
+		"titel": "Bewegung",
+		"code": "M10"
+	},
+	{
+		"id": "12764",
+		"studiengangId": 6,
+		"zeitsemesterInt": 20211,
+		"zeitsemester": "SoSe2021",
+		"fachsemester": 2,
+		"titel": "Wachstum, Gewebe, Organ",
+		"code": "M05"
+	}
+]

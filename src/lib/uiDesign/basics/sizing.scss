@@ -1,0 +1,5 @@
+@use 'bootstrapConfig' as *;
+
+$button_icon_additional_size: 2px;
+$icon_default_size: add($btn-font-size-lg, $button_icon_additional_size);
+$compact_input_total_height: add($font-size-base, 2 * ($input-padding-y-sm + $input-border-width));

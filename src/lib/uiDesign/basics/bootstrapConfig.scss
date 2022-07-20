@@ -1,0 +1,88 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+@use 'colors';
+@use 'sizingOverwritingBootstrap' as sizing;
+@use 'fonts';
+
+@use '../../../../node_modules/bootstrap/scss/bootstrap' with (
+	$font-family-sans-serif: fonts.$font-family-sans-serif,
+	$font-weight-normal: fonts.$font-weight-normal,
+	$font-weight-bold: fonts.$font-weight-bold,
+
+	$input-padding-y-sm: sizing.$input-padding-y-sm,
+	$input-font-size-sm: sizing.$font-size-base,
+	$input-border-width: sizing.$input-border-width,
+	$dropdown-padding-y: sizing.$dropdown-padding-y,
+	$dropdown-spacer: sizing.$dropdown-spacer,
+	$spinner-width-sm: sizing.$spinner-width-sm,
+	$spinner-height-sm: sizing.$spinner-height-sm,
+
+	$blue: colors.$blue_pantone_293_100,
+	$indigo: colors.$grey_pantone_430_050,
+	$purple: colors.$grey_pantone_430_050,
+	$pink: colors.$grey_pantone_430_050,
+	$red: colors.$function_error_red,
+	$orange: colors.$function_warning_orange,
+	// would fit the color scheme: #cc854f;
+	$yellow: colors.$function_rating_yellow,
+	$green: colors.$function_success_green,
+	$teal: colors.$grey_pantone_430_050,
+	// would fit the color scheme: #1c6963;
+	$cyan: colors.$grey_pantone_430_050,
+
+	$gray-500: colors.$grey_pantone_430_050,
+	$gray-900: colors.$grey_pantone_430_800,
+	$gray-800: colors.$grey_pantone_430_800,
+	$gray-700: colors.$grey_pantone_430_100,
+	$gray-600: colors.$grey_pantone_430_100,
+	$gray-400: colors.$grey_pantone_430_027,
+	$gray-300: colors.$grey_pantone_430_018,
+	$gray-200: colors.$grey_pantone_430_018,
+	$gray-100: colors.$grey_pantone_430_009,
+
+	$primary: colors.$blue_pantone_293_100,
+	$secondary: colors.$grey_pantone_430_050,
+	$info: colors.$grey_pantone_430_100,
+
+	$success: colors.$function_success_green,
+	$warning: colors.$function_rating_yellow,
+	$danger: colors.$function_error_red,
+
+	$light: colors.$grey_pantone_430_009,
+	$dark: colors.$grey_pantone_430_800,
+
+	$body-color: colors.$text_01_high,
+	$badge-color: colors.$text_01_high,
+	$dropdown-link-color: colors.$grey_pantone_430_800,
+	$dropdown-link-hover-color: colors.$grey_pantone_430_800,
+	$dropdown-link-hover-bg: colors.$blue_pantone_293_012,
+	$dropdown-link-active-color: colors.$grey_pantone_430_800,
+	$dropdown-link-active-bg: colors.$blue_pantone_293_pale,
+
+	// Toggle global options
+	$enable-rounded: true,
+	$enable-shadows: false,
+	$enable-gradients: false,
+	$enable-transitions: true,
+	$enable-grid-classes: true,
+
+	// Checkbox
+	$form-check-input-bg: transparent,
+	$form-check-input-active-filter: none,
+	$form-check-input-border: 1.5px solid colors.$text_02_medium,
+	$form-check-input-border-radius: 1.5px,
+	$form-check-input-focus-border: colors.$text_02_medium,
+	$form-check-input-focus-box-shadow: none,
+	$form-check-input-checked-bg-image:
+		url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="5 4 15 15" fill="white"><path d="M0 0h24v24H0z" fill="#0046aa"/><path d="M19 3m-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>')
+);
+@forward '../../../../node_modules/bootstrap/scss/bootstrap';

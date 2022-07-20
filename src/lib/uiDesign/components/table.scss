@@ -1,0 +1,9 @@
+@use '../basics/bootstrapConfig' as *;
+
+.table {
+	border-color: $gray-700;
+
+	> :not(:first-child) {
+		border-top: (1 * $table-border-width) solid $gray-700;
+	}
+}

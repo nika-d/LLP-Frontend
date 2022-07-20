@@ -1,0 +1,205 @@
+{
+	"module": [
+		{
+			"id": 15173,
+			"studiengangId": 6,
+			"zeitsemesterInt": 20212,
+			"zeitsemester": "WiSe2021",
+			"fachsemester": 3,
+			"titel": "Bewegung",
+			"code": "M10"
+		}
+	],
+	"submodule": [
+		{
+			"id": 1517303,
+			"modulId": 15173,
+			"ordinal": 3,
+			"titel": "Modulwoche 3"
+		},
+		{
+			"id": 1517304,
+			"modulId": 15173,
+			"ordinal": 4,
+			"titel": "Modulwoche 4"
+		}
+	],
+	"veranstaltungen": [
+		{
+			"id": 77619,
+			"modulId": 15173,
+			"submodulId": 1517303,
+			"lehrformatId": 832,
+			"lehrformat": "POL",
+			"nummer": 1154,
+			"kurzTitel": "POL",
+			"langTitel": "POL M10-3"
+		},
+		{
+			"id": 77629,
+			"modulId": 15173,
+			"submodulId": 1517304,
+			"lehrformatId": 832,
+			"lehrformat": "POL",
+			"nummer": 656,
+			"kurzTitel": "POL",
+			"langTitel": "POL M10-4"
+		},
+		{
+			"id": 77630,
+			"modulId": 15173,
+			"submodulId": 1517304,
+			"lehrformatId": 302,
+			"lehrformat": "Fachvorlesung",
+			"nummer": 534,
+			"kurzTitel": "Vorlesung",
+			"langTitel": "Einführung in die motorische Steuerung"
+		},
+		{
+			"id": 77634,
+			"modulId": 15173,
+			"submodulId": 1517304,
+			"lehrformatId": 833,
+			"nummer": 532,
+			"kurzTitel": "Seminar 1",
+			"langTitel": "Grundlagen der Spinalmotorik"
+		},
+		{
+			"id": 77637,
+			"modulId": 15173,
+			"submodulId": 1517304,
+			"lehrformatId": 838,
+			"nummer": 33805,
+			"kurzTitel": "Praktikum",
+			"langTitel": "Elektrophysiologie peripherer Reflexe"
+		}
+	],
+	"termine": [
+		{
+			"id": "20212-1154-3._FS_13a-14a-1",
+			"veranstaltungsId": 77619,
+			"raumId": null,
+			"start": "2021-11-30T12:30:00+01:00",
+			"ende": "2021-11-30T14:00:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 53835,
+					"personId": "ArRorQzPGkKIL3jgCGYRg76B2dw=",
+					"einrichtungsId": 10
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-1154-3._FS_13a-14a-2",
+			"veranstaltungsId": 77619,
+			"raumId": null,
+			"start": "2021-12-07T12:00:00+01:00",
+			"ende": "2021-12-07T13:30:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 53836,
+					"personId": "ArRorQzPGkKIL3jgCGYRg76B2dw=",
+					"einrichtungsId": 10
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-656-3._FS_13a-14a-1",
+			"veranstaltungsId": 77629,
+			"raumId": null,
+			"start": "2021-12-07T13:30:00+01:00",
+			"ende": "2021-12-07T15:00:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 74702,
+					"personId": "ArRorQzPGkKIL3jgCGYRg76B2dw=",
+					"einrichtungsId": 10
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-656-3._FS_13a-14a-2",
+			"veranstaltungsId": 77629,
+			"raumId": null,
+			"start": "2022-01-05T10:30:00+01:00",
+			"ende": "2022-01-05T12:00:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "13a-14a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 74703,
+					"personId": "ArRorQzPGkKIL3jgCGYRg76B2dw=",
+					"einrichtungsId": 10
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": ["pol"]
+		},
+		{
+			"id": "20212-534-3._FS_1a-30b-1",
+			"veranstaltungsId": 77630,
+			"raumId": null,
+			"start": "2021-12-06T08:15:00+01:00",
+			"ende": "2021-12-06T09:45:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "1a-30b",
+			"lehrTaetigkeiten": [
+				{
+					"id": 72956,
+					"personId": "FEm1MQAyRPNc64z/IbxMdfU0LEI=",
+					"einrichtungsId": 12
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": []
+		},
+		{
+			"id": "20212-532-3._FS_11b-14b-1",
+			"veranstaltungsId": 77634,
+			"raumId": null,
+			"start": "2021-12-06T12:00:00+01:00",
+			"ende": "2021-12-06T13:30:00+01:00",
+			"campus": "eLive",
+			"gruppenbezeichnung": "11b-14b",
+			"lehrTaetigkeiten": [
+				{
+					"id": 72938,
+					"personId": "FEm1MQAyRPNc64z/IbxMdfU0LEI=",
+					"einrichtungsId": 12
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": []
+		},
+		{
+			"id": "20212-33805-3._FS_11a-13a-1",
+			"veranstaltungsId": 77637,
+			"raumId": 2101,
+			"start": "2021-12-09T10:45:00+01:00",
+			"ende": "2021-12-09T13:45:00+01:00",
+			"campus": "CCM",
+			"gruppenbezeichnung": "11a-13a",
+			"lehrTaetigkeiten": [
+				{
+					"id": 67433,
+					"personId": "miEw8zh2lzq+qTs1NyRFv2uai9k=",
+					"einrichtungsId": 12
+				}
+			],
+			"geplanteEinrichtungen": [],
+			"noetigeQualifikationen": []
+		}
+	]
+}

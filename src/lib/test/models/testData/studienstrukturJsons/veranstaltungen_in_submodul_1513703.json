@@ -1,0 +1,92 @@
+[
+	{
+		"id": "74476",
+		"modulId": "15137",
+		"submodulId": "1513703",
+		"lehrformatId": 814,
+		"nummer": 1405,
+		"kurzTitel": "Untersuchungskurs",
+		"langTitel": "Wiederholung und Vertiefung Patientenuntersuchung: Thorax/ Lunge - Termin 10"
+	},
+	{
+		"id": 77600,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 330,
+		"nummer": 2322,
+		"kurzTitel": "Einführung",
+		"langTitel": "Organisatorische Einführung Modul 10"
+	},
+	{
+		"id": 77601,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 832,
+		"nummer": 581,
+		"kurzTitel": "POL",
+		"langTitel": "POL M10-1"
+	},
+	{
+		"id": 77602,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 303,
+		"nummer": 544,
+		"kurzTitel": "Patientenvorstellung",
+		"langTitel": "Das Muskuloskelettale System | Einführung"
+	},
+	{
+		"id": 77603,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 301,
+		"nummer": 452,
+		"kurzTitel": "Vorlesung",
+		"langTitel": "Ars longa - ossa brevia | Knochenarchitektur, -funktion und -fraktur"
+	},
+	{
+		"id": 77604,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 302,
+		"nummer": 494,
+		"kurzTitel": "Vorlesung",
+		"langTitel": "Das breite Spektrum der Gangstörungen"
+	},
+	{
+		"id": 77605,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 833,
+		"nummer": 520,
+		"kurzTitel": "Seminar 1",
+		"langTitel": "Besonderheiten des Knochenstoffwechsels"
+	},
+	{
+		"id": 77606,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 835,
+		"nummer": 5781,
+		"kurzTitel": "Seminar 2",
+		"langTitel": "Praktische Anatomie und Bildgebung | Hüfte und Knie"
+	},
+	{
+		"id": 77607,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 833,
+		"nummer": 580,
+		"kurzTitel": "Seminar 3",
+		"langTitel": "Physikalisch-Chemische Eigenschaften biologischer Materialien"
+	},
+	{
+		"id": 77608,
+		"modulId": 15173,
+		"submodulId": "1513703",
+		"lehrformatId": 676,
+		"nummer": 613,
+		"kurzTitel": "Präparierkurs",
+		"langTitel": "Anatomische Präparation | Bewegungsapparat 1"
+	}
+]

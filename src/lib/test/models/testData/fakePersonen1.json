@@ -1,0 +1,98 @@
+[
+	{
+		"id": "3RICDyet5hAwiobV92pylr2f8Sc=",
+		"titel": null,
+		"vorname": "Paul",
+		"nachname": "Hermann",
+		"email": "paul.hermann@charite.de",
+		"einrichtungsIds": ["50"]
+	},
+	{
+		"id": "LfzCBQmtPuM6COwe6gP1uiyBhfE=",
+		"titel": null,
+		"vorname": "Nadine",
+		"nachname": "Niemann Verde",
+		"email": "nadine.niemann-verde@charite.de",
+		"einrichtungsIds": ["128"]
+	},
+	{
+		"id": "GtewiDQDr9FWk1VUNHs/H08pzYg=",
+		"titel": "Dr. med. ",
+		"vorname": "Sarahlisa",
+		"nachname": "Terzibasian",
+		"email": "sarahlisa.terzibasian@charite.de",
+		"einrichtungsIds": ["84"]
+	},
+	{
+		"id": "1sZV79+BQhN/9NxirQ999IELjuY=",
+		"titel": null,
+		"vorname": "Alexandra",
+		"nachname": "de Almeida Mockacino",
+		"email": "ala.mocka@charite.de",
+		"einrichtungsIds": ["12"]
+	},
+	{
+		"id": "ArRorQzPGkKIL3jgCGYRg76B2dw=",
+		"titel": "Dr.med.",
+		"vorname": "Elisabeth",
+		"nachname": "Gelatto",
+		"email": "elisabeth.gelatto@charite.de",
+		"einrichtungsIds": ["10", "18"]
+	},
+	{
+		"id": "FEm1MQAyRPNc64z/IbxMdfU0LEI=",
+		"titel": "Dr.",
+		"vorname": "Agatha",
+		"nachname": "Rosshauer",
+		"email": "agatha.rosshauer@charite.de",
+		"einrichtungsIds": ["12"]
+	},
+	{
+		"id": "miEw8zh2lzq+qTs1NyRFv2uai9k=",
+		"titel": "Dr.",
+		"vorname": "Anna",
+		"nachname": "Steinbock",
+		"email": "anna.steinbock@charite.de",
+		"einrichtungsIds": ["12", "135"]
+	},
+	{
+		"id": "EQTAAlwEAK86Hu1r2twHixZ5s4=",
+		"titel": "Dr.",
+		"vorname": "Jonas",
+		"nachname": "Loecke",
+		"email": "jonas.loecke@charite.de",
+		"einrichtungsIds": ["20"]
+	},
+	{
+		"id": "/Exybbq7iWZaUlpFbO1E6BVNY/A=",
+		"titel": "Prof. Dr.",
+		"vorname": "Ingo",
+		"nachname": "Vrin",
+		"email": "ingo.vrin@charite.de",
+		"einrichtungsIds": ["15"]
+	},
+	{
+		"id": "/GClh6PSX2HNtYU0wyEfWe/CoE4=",
+		"titel": "Prof. Dr.",
+		"vorname": "Dario",
+		"nachname": "Blockner",
+		"email": "dario.blockner@charite.de",
+		"einrichtungsIds": ["15"]
+	},
+	{
+		"id": "/GMbeLjaGxrTiVDUeyfQXfs3qds=",
+		"titel": "Dr.",
+		"vorname": "Theodor",
+		"nachname": "Wurz",
+		"email": "theodor.wurz@charite.de",
+		"einrichtungsIds": ["16"]
+	},
+	{
+		"id": "/H+hGIpWP/+9feuYrNceRr/uFwA=",
+		"titel": "Dr. med.",
+		"vorname": "Jannes",
+		"nachname": "Temedais",
+		"email": "jannes.Temedais@charite.de",
+		"einrichtungsIds": ["52"]
+	}
+]

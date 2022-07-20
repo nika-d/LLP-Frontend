@@ -1,0 +1,32 @@
+@use '../basics/colors' as c;
+@use '../basics/sizing' as sizing;
+@use '../basics/bootstrapConfig' as *;
+
+$text_input_background: c.$grey_pantone_430_018;
+
+.c-text-input-compact {
+	@extend .lh-1;
+	height: sizing.$compact_input_total_height !important;
+}
+
+.c-text-input {
+	@extend .border, .rounded;
+
+	border-width: $input-border-width !important;
+	background-color: $text_input_background;
+	color: c.$text_01_high !important;
+	border-color: transparent !important;
+
+	::placeholder {
+		color: c.$text_03_low;
+	}
+
+	&:focus {
+		@extend .border-primary;
+		outline: none;
+	}
+}
+
+input[type='text'] {
+	@extend .c-text-input;
+}

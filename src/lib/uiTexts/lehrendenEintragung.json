@@ -1,0 +1,20 @@
+{
+	"LEHRENDE": "Lehr.",
+	"EINRICHTUNG_BITTE_WAEHLEN": "Einr. bitte wählen!",
+	"KEINE_EINRICHTUNG": "Einr. nicht wählbar",
+
+	"CURRICULUM": "Curriculum",
+	"STUDIENGANG": "Studiengang",
+	"FACHSEMESTER_ABKUERZUNG": ".FS",
+	"MODUL": "Modul",
+	"VERANSTALTUNG": "Veranstaltung",
+	"LEHRFORMAT": "Lehrformat",
+	"GRUPPEN": "Gruppen",
+	"RAUM": "Raum",
+	"CAMPUS": "Campus",
+	"ZEIT": "Zeit",
+	"LEHRENDEN": "Lehrenden",
+	"LEHRENDEN_EINTRAGUNG": "Lehrenden-Eintragung",
+
+	"LEHRENDE_FEHLT": "Keine Lehrenden"
+}

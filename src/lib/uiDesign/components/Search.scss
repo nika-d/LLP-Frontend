@@ -1,0 +1,60 @@
+@use '../basics/bootstrapConfig' as *;
+@use '../basics/sizing' as sizing;
+@use '../basics/colors' as colors;
+@use 'button';
+
+.search {
+	@extend .border, .fw-light, .rounded, .d-flex, .flex-row, .align-items-center;
+
+	border-width: $input-border-width !important;
+	background-color: colors.$grey_pantone_430_018;
+	color: colors.$text_01_high;
+	border-color: transparent;
+
+	width: var(--this-search-width, unset) !important;
+
+	.searchinfocus {
+		@extend .border-primary;
+		outline: none;
+	}
+
+	input[type='search'] {
+		@extend .d-inline, .flex-grow-1, .flex-shrink-1, .form-control, .p-0;
+		box-sizing: border-box;
+		border: none !important;
+		outline: none !important;
+		background-color: transparent;
+		margin-top: $btn-padding-y;
+		margin-bottom: $btn-padding-y;
+
+		&:focus,
+		&:focus-visible,
+		&:focus-within {
+			border: none !important;
+			outline: none !important;
+			box-shadow: none;
+			background-color: transparent;
+		}
+
+		::placeholder {
+			color: colors.$text_03_low;
+		}
+	}
+
+	.search-internal-button {
+		@extend .btn;
+		border: 0;
+		margin: auto 0.5 * $btn-font-size auto 0.5 * $btn-font-size;
+		background-color: transparent !important;
+		padding: 0;
+		color: colors.$text_02_medium !important;
+		&:active {
+			@extend .bg-secondary;
+		}
+	}
+
+	.material-icon {
+		vertical-align: middle !important;
+		font-size: sizing.$icon_default_size !important;
+	}
+}

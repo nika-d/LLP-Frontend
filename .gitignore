@@ -1,0 +1,15 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+/public/showcase.css
+/public/showcase.css.map
+/public/showcase.js
+/public/showcase.js.map
+/coverage/
+/cypress/screenshots
+/cypress/videos

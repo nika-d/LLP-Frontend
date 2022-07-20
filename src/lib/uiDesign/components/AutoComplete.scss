@@ -1,0 +1,37 @@
+@use '../../uiDesign/components/TextInput';
+@use '../../uiDesign/basics/bootstrapConfig' as *;
+@use '../../uiDesign/basics/shadows' as shadow;
+@use '../../uiDesign/basics/sizing' as sizing;
+@use '../../uiDesign/basics/colors' as colors;
+
+.simple-svelte-autocomplete-overwrite {
+	height: sizing.$compact_input_total_height !important;
+	border: none !important;
+	min-width: unset !important;
+	width: var(--this-autocomplete-width, unset) !important;
+	top: -($input-border-width + $input-padding-y-sm) !important;
+}
+
+.autocomplete-text-input {
+	@extend .p-0, .ps-1, .c-text-input, .c-text-input-compact;
+}
+
+.autocomplete-text-input:focus-visible {
+	@extend .border-primary;
+	outline: none;
+}
+
+.autocomplete-dropdown {
+	@extend .rounded;
+	@include shadow.c-box-shadow;
+	width: max-content !important;
+}
+
+.autocomplete-list-item {
+	padding: 5px !important;
+}
+
+.autocomplete-list-item.selected {
+	background-color: colors.$blue_pantone_293_012 !important;
+	color: $dark !important;
+}

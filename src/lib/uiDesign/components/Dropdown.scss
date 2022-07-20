@@ -1,0 +1,21 @@
+@use 'TextInput' as t;
+@use '../basics/shadows' as s;
+
+.dropdown {
+	.btn {
+		&:active {
+			background-color: t.$text_input_background;
+		}
+	}
+
+	.dropdown-menu {
+		@include s.c-box-shadow;
+		border: 0;
+	}
+
+	.dropdown-toggle {
+		&::after {
+			display: none;
+		}
+	}
+}
