@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AutoComplete from 'simple-svelte-autocomplete'
 	import SimpleAutoCompleteItem from './SimpleAutoCompleteItem.svelte'
+	import { createEventDispatcher } from 'svelte'
 
 	export let selectedItem = undefined,
 		itemComponent = SimpleAutoCompleteItem,
@@ -8,7 +9,13 @@
 		placeholder = '',
 		labelFieldName = 'label',
 		width: string = null, //mit Einheit, z.B. "10rem" - Einheiten px, rem, em gehen gut, - % geht irgendwie nicht so,
-		alignRight = false
+		alignRight = false,
+		bubbleFocus = false
+
+	const dispach = createEventDispatcher()
+	function dispatchFocus() {
+		dispach('focus')
+	}
 </script>
 
 <span style={width ? '--this-autocomplete-width:' + width : ''}>
@@ -21,6 +28,7 @@
 		{items}
 		{labelFieldName}
 		{placeholder}
+		onFocus={bubbleFocus ? dispatchFocus : undefined}
 	>
 		<div let:item let:label slot="item">
 			<svelte:component this={itemComponent} {item} {label} />

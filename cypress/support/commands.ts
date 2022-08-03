@@ -21,18 +21,25 @@
 // -- This is a dual command --
 // Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
 //
+
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+
+// LAST WEBSITE FOR CUSTOM COMMAND FIX: https://stackoverflow.com/questions/54133888/cypress-custom-commands-not-recognized
+
+declare global {
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Cypress {
+		interface Chainable {
+			getBySel(selector: string): Chainable<JQuery<Element>>
+		}
+	}
+}
+
+Cypress.Commands.add('getBySel', (selector) => {
+	return cy.get(`[data-cy=${selector}]`)
+})
+
 export {}

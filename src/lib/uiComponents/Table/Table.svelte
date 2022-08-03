@@ -1,16 +1,8 @@
 <script lang="ts">
-	import ColumnConfig from './ColumnConfig'
-	import type { Readable } from 'svelte/store'
-	import { readable } from 'svelte/store'
-	import type { FilterFunctionType } from '../Filter/Filter'
+	import type ColumnConfig from './ColumnConfig'
+	import tags from '../../../../cypress/support/data-cy'
 
-	export let rowsData: Array<unknown>,
-		columnConfigs: ColumnConfig[],
-		composedFilterFunction: Readable<FilterFunctionType<unknown>> = readable(() => true)
-
-	let filter
-
-	$: filter = $composedFilterFunction
+	export let rowsData: Array<unknown>, columnConfigs: ColumnConfig[]
 </script>
 
 <table class="table">
@@ -27,7 +19,7 @@
 	</thead>
 	<tbody>
 		{#each rowsData as rowData}
-			<tr class:d-none={!filter(rowData)}>
+			<tr data-cy={tags.TABLE_ROW}>
 				{#each columnConfigs as config}
 					<td>
 						{#if config.cellComponent}

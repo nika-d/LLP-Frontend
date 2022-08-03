@@ -1,7 +1,7 @@
 import { DerivedItemsStore } from '$lib/common/DerivedItemsStore'
 import { get } from 'svelte/store'
 import AutoCompleteItemEinrichtungType from './dataTypes/AutoCompleteItemEinrichtungType'
-import type EinrichtungModelType from '$lib/models/dataTypes/EinrichtungModelType'
+import type EinrichtungModelType from '$lib/models/dataTypes/Einrichtung/EinrichtungModelType'
 
 export default class AutoCompleteItemsEinrichtungen extends DerivedItemsStore<AutoCompleteItemEinrichtungType> {
 	constructor([$einrichtungenModel]) {

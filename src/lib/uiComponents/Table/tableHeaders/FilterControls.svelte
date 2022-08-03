@@ -4,6 +4,7 @@
 	import Badge from '../../Badge.svelte'
 	import FilterComposition from '../../Filter/FilterComposition'
 	import FilterComponentConfig from '../../Filter/FilterComponentConfig'
+	import tags from '../../../../../cypress/support/data-cy'
 
 	export let filterConfigs: FilterComponentConfig[], filterComposition: FilterComposition
 
@@ -13,7 +14,6 @@
 
 	$: {
 		numberOfAppliedFilters = filterConfigs.filter((filter) => filter.applied).length
-		console.log(filterConfigs)
 	}
 </script>
 
@@ -29,14 +29,14 @@
 				aria-expanded="false"
 				aria-controls="filters"
 				data-testid="numberOfAppliedFilters"
-				data-cy="filter-container-toggle"
+				data-cy={tags.FILTER_CONTAINER_TOGGLE}
 			>
 				{tableTexts.FILTER_AUF_ZUKLAPPEN}
 				<Badge>{numberOfAppliedFilters}</Badge>
 			</button>
 		</div>
 	</div>
-	<div class="collapse" id="filters" data-cy="filter-container">
+	<div class="collapse" id="filters" data-cy={tags.FILTER_CONTAINER}>
 		<div class="d-flex flex-wrap py-2">
 			{#each filterConfigs as config}
 				<div class="d-inline-flex p-1">

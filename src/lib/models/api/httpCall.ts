@@ -1,4 +1,4 @@
-import { apiStatusContants } from './apiConstants'
+import { apiStatusConstants } from './apiConstants'
 import { ApiStatusModel } from './ApiStatusModel'
 import { ApiStatusType } from './ApiStatusType'
 
@@ -14,9 +14,11 @@ export function httpGet(url, parameters, callback): ApiStatusModel {
 	return httpCall(url, 'get', parameters, callback)
 }
 
-export function httpCall(url, method, parameters, callback): ApiStatusModel {
-	console.log(parameters)
+export function httpDelete(url, parameters, callback): ApiStatusModel {
+	return httpCall(url, 'delete', parameters, callback)
+}
 
+export function httpCall(url, method, parameters, callback): ApiStatusModel {
 	const statusModel = new ApiStatusModel()
 	fetch(url, {
 		method: method,
@@ -26,15 +28,16 @@ export function httpCall(url, method, parameters, callback): ApiStatusModel {
 		body: JSON.stringify(parameters)
 	})
 		.then((response) => {
-			statusModel.set(new ApiStatusType(apiStatusContants.OK))
+			statusModel.set(new ApiStatusType(apiStatusConstants.OK))
 			return response.json()
 		})
 		.then((jsonData) => {
-			// todo: exception handling
-			console.log('CATCH ', url)
-			console.log(jsonData)
 			callback(jsonData)
 		})
-		.catch((error) => statusModel.set(new ApiStatusType(apiStatusContants.ERROR, error)))
+		.catch((error) => {
+			statusModel.set(
+				new ApiStatusType(apiStatusConstants.ERROR, error.errorCode + ' - ' + error.errorMessage)
+			)
+		})
 	return statusModel
 }

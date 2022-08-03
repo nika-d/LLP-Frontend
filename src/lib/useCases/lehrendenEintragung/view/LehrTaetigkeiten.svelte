@@ -1,26 +1,18 @@
 <script lang="ts">
 	import LehrTaetigkeitAnzeigen from './LehrTaetigkeitAnzeigen.svelte'
 	import LehrTaetigkeitHinzufuegen from './LehrTaetigkeitHinzufuegen.svelte'
-	import { LehrTaetigkeiten } from '../viewModel/LehrTaetigkeiten'
-	import Lehrende from '../viewModel/Lehrende'
-	import { getContext } from 'svelte'
-	import * as contextKeys from '../viewModel/contextModels'
-	import AutoCompleteItemsEinrichtungen from '../viewModel/AutoCompleteItemsEinrichtungen'
+	import type { LehrTaetigkeiten } from '../viewModel/LehrTaetigkeiten'
 
 	export let lehrenden: LehrTaetigkeiten
-
-	const lehrende: Lehrende = getContext(contextKeys.lehrende),
-		einrichtungen: AutoCompleteItemsEinrichtungen = getContext(contextKeys.autoCompleteItemsEinrichtungen)
 </script>
 
 <div class="lehrtaetigkeiten-zelle">
 	{#each $lehrenden as lehrTaetigkeit}
-		<LehrTaetigkeitAnzeigen {lehrTaetigkeit} />
+		<LehrTaetigkeitAnzeigen {lehrTaetigkeit} deleteLehrtaetigkeit={lehrenden.deletePerApi} />
 	{/each}
 	<LehrTaetigkeitHinzufuegen
 		lehrTaetigkeitHinzufuegenAPI={lehrenden.hinzufuegenPerApi}
-		{lehrende}
-		{einrichtungen}
+		existingLehrende={$lehrenden}
 	/>
 </div>
 

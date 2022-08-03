@@ -2,6 +2,7 @@ import uiTexts from '$lib/uiTexts/lehrendenEintragung.json'
 import type { TerminType } from './dataTypes/TerminType'
 import LehrTaetigkeiten from '../view/LehrTaetigkeiten.svelte'
 import MultipleChoiceFilter from '$lib/uiComponents/Filter/MultipleChoice/MultipleChoiceFilter.svelte'
+import ZeitspannenFilter from '$lib/uiComponents/Filter/ZeitspannenFilter.svelte'
 import StudienStrukturZelle from '../view/StudienStrukturZelle.svelte'
 import LehrTeatigkeitenFilter from '../view/LehrTaetigkeitenFilter.svelte'
 
@@ -74,7 +75,8 @@ const configConstants = [
 		column: true,
 		getDataFunction: (termin: TerminType) => termin.zeit,
 		columnWidth: null,
-		cellComponent: null
+		cellComponent: null,
+		filterComponent: ZeitspannenFilter
 	},
 	{
 		caption: uiTexts.LEHRENDEN,

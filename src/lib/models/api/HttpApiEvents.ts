@@ -1,9 +1,9 @@
 import { URLs } from './URLs'
-import { httpPost, httpPut } from './httpCall'
+import { httpDelete, httpPost, httpPut } from './httpCall'
 import type { ApiStatusModel } from './ApiStatusModel'
 
 export class HttpApiEvents {
-	public static lehrtaetigkeitHinzufuegen(
+	public lehrtaetigkeitHinzufuegen(
 		terminId: string,
 		personId: string,
 		einrichtungsId: string,
@@ -24,7 +24,7 @@ export class HttpApiEvents {
 		)
 	}
 
-	public static einrichtungSetzen(
+	public einrichtungSetzen(
 		lehrTaetigkeitId: string,
 		einrichtungsId: string,
 		updateModelCallback
@@ -34,6 +34,13 @@ export class HttpApiEvents {
 			URLs.lehrtaetigkeit + '/' + lehrTaetigkeitId,
 			{ einrichtungsId: einrichtungsId.toString() },
 			(jsonData) => updateModelCallback(jsonData.lehrTaetigkeitsId)
+		)
+	}
+
+	public deleteLehrtaetigkeit(lehrtaetigkeitsId: string, updateModelCallback): ApiStatusModel {
+		console.log('DELETE - Lehrtaetigkeit ' + lehrtaetigkeitsId)
+		return httpDelete(URLs.lehrtaetigkeit + '/' + lehrtaetigkeitsId, {}, () =>
+			updateModelCallback(lehrtaetigkeitsId)
 		)
 	}
 }

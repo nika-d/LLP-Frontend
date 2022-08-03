@@ -1,7 +1,7 @@
 import { einrichtungenModels } from './testData/einrichtungen'
 import c from './testData/assertionConstants'
 import EinrichtungenModel from '$lib/models/EinrichtungenModel'
-import type EinrichtungModelType from '$lib/models/dataTypes/EinrichtungModelType'
+import type EinrichtungModelType from '$lib/models/dataTypes/Einrichtung/EinrichtungModelType'
 
 describe('Einrichtungen Model', function () {
 	describe('constructor', function () {

@@ -1,8 +1,8 @@
-import { writable } from 'svelte/store'
 import type { Writable } from 'svelte/store'
+import { writable } from 'svelte/store'
 import type { Invalidator, Subscriber, Unsubscriber, Updater } from './SvelteStoreTypeDeclarations'
 
-export abstract class WritableStore<T> implements Writable<T> {
+export class WritableStore<T> implements Writable<T> {
 	private store: Writable<T>
 
 	public constructor(value: T) {

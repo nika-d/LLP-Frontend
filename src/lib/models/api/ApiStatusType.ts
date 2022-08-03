@@ -1,25 +1,24 @@
-import { apiStatusContants } from './apiConstants'
+import { apiStatusConstants } from './apiConstants'
 
 export class ApiStatusType {
 	public readonly statusCode: string
 	public readonly errorMessage: string
 
-	constructor(statusCode: apiStatusContants = apiStatusContants.PENDING, errorMessage = '') {
+	constructor(statusCode: apiStatusConstants = apiStatusConstants.PENDING, errorMessage = '') {
 		this.statusCode = statusCode
 		this.errorMessage = errorMessage
 	}
 
-	get pending(): boolean {
-		return this.statusCode == apiStatusContants.PENDING
+	get isPending(): boolean {
+		return this.statusCode == apiStatusConstants.PENDING
 	}
-	get error(): boolean {
-		return this.statusCode == apiStatusContants.ERROR
+	get isError(): boolean {
+		return this.statusCode == apiStatusConstants.ERROR
 	}
-	get ok(): boolean {
-		return this.statusCode == apiStatusContants.OK
+	get isOk(): boolean {
+		return this.statusCode == apiStatusConstants.OK
 	}
-
-	public toString() {
-		return this.statusCode + ' ' + this.errorMessage
+	get isInitial(): boolean {
+		return this.statusCode == apiStatusConstants.INITIAL
 	}
 }

@@ -1,19 +1,7 @@
-export default class EinrichtungModelType {
-	public name: string
-
-	constructor(p: { name: string }) {
-		this.name = p.name
-	}
-
-	get verkuerzt(): string {
-		return verkuerze(this.name)
-	}
-}
-
-function verkuerze(name) {
+export function verkuerze(name: string) {
 	let verkuerzt
 
-	verkuerzt = name.replaceAll(' - ', ', ')
+	verkuerzt = String(name).replaceAll(' - ', ', ')
 
 	verkuerzt = verkuerzt.replace('Medizinische Klinik für', 'Med.K.f.')
 

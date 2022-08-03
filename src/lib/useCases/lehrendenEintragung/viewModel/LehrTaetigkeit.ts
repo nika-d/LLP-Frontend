@@ -11,7 +11,7 @@ export class LehrTaetigkeit extends DerivedItemStore<LehrTaetigkeitType> {
 	public readonly einrichtungSetzenPerApi: (einrichtungsId: string) => ApiStatusModel
 
 	constructor([lehrTaetigkeit, lehrende, einrichtungenModel], derivingFunction) {
-		console.log('LehrTaetigkeit ViewModel constructor') // dieses log bleibt, um ggf. Bugs bei model->viewModel cast aufzuzeigen
+		// console.log('LehrTaetigkeit ViewModel constructor') // dieses log bleibt, um ggf. Bugs bei model->viewModel cast aufzuzeigen
 		super([lehrTaetigkeit, lehrende, einrichtungenModel], derivingFunction)
 		this.einrichtungSetzenPerApi = lehrTaetigkeit.einrichtungSetzen
 	}
@@ -32,7 +32,7 @@ export class LehrTaetigkeit extends DerivedItemStore<LehrTaetigkeitType> {
 				? lehrende.model.einrichtungsIds.map((id) => $einrichtungen.find((e) => e.id === id))
 				: []
 
-		const einrichtung = einrichtungAutocompleteCandidates.find((item) => item.id === einrichtungsId)
+		const einrichtung = $einrichtungen.find((item) => item.id === einrichtungsId)
 
 		return new LehrTaetigkeitType(
 			lehrende ? lehrende.model.vollerName : undefined,

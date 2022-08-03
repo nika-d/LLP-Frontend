@@ -3,9 +3,10 @@ import l from './studienstrukturJsons/lehrformate.json'
 import s from './studienstrukturJsons/submodule.json'
 import m from './studienstrukturJsons/module.json'
 import st from './studienstrukturJsons/studiengaenge.json'
-import { einrichtungen } from './einrichtungen'
+import { einrichtungen, json as einrichtungenJson } from './einrichtungen'
 import personenJsons from './fakePersonen1.json'
 import { fakePersonen2 as personenMap } from './fakePersonen2'
+import { verkuerze } from '$lib/models/dataTypes/Einrichtung/verkuerze'
 
 const personenIds = Array.from(personenMap.keys())
 const personen = Array.from(personenMap.values())
@@ -29,12 +30,16 @@ export default {
 	LEHRFORMAT_B_BEZEICHNUNG_LANG: l[10].bezeichnungLang, // POL
 
 	EINRICHTUNGEN_ANZAHL: einrichtungen.size,
+	EINRICHTUNG_5_LABEL: verkuerze(einrichtungenJson.einrichtungen[0].name), // "CC01, I.f. Geschichte der Medizin und Ethik in der Medizin, CBF"
 
 	PERSON_A_GUID: personenJsons[0].id, // 3RICDyet5hAwiobV92pylr2f8Sc=
 	PERSON_A_NACHNAME: personenJsons[0].nachname, // Hermann
 	PERSON_A_EMAIL: personenJsons[0].email, // paul.hermann@charite.de
 	PERSON_B_GUID: personenIds[0], // /K4Ysl4S4U9x4N7g+D/Vuw293iw=
+	PERSON_B_EINRICHTUNG_IDS: personen[0].einrichtungsIds, // ['5']
 	PERSON_B_NACHNAME: personen[0].nachname, // Mustermann
+	PERSON_B_FULL_NAME: personen[0].nachname + ', ' + personen[0].vorname, //Mustermann, Petra
+	PERSON_B_EMAIL: personen[0].email, //petra.mustermann@charite.de
 	PERSON_C_GUID: personenIds[2], // 00J2lj6tJ8APwu6cztcUq5hiPcg=
 	PERSON_D_VORNAME: personen[1].vorname, // Hansi
 	PERSON_E_VOLLER_NAME: personen[6].nachname + ', ' + personen[6].vorname, // Lagewiese, Mark

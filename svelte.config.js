@@ -24,6 +24,8 @@ const config = {
 				environment: 'jsdom',
 				setupFiles: 'setupTestEnvironment.ts'
 			},
+			// default to development as a guard
+			mode: process.env.APP_MODE || 'development',
 			server: {
 				fs: {
 					// Allow serving files from one level up to the project root

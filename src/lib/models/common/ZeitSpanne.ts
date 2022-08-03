@@ -38,7 +38,16 @@ export default class ZeitSpanne {
 			: undefined
 	}
 
-	liegtZwischen(date1, date2) {
+	liegtZwischen(date1: Date = null, date2: Date = null) {
+		if (date1 == null && date2 == null) {
+			return true
+		}
+		if (date1 == null) {
+			return this.#start < date2
+		}
+		if (date2 == null) {
+			return date1 < this.#start
+		}
 		return date1 < this.#start && this.#start < date2
 	}
 

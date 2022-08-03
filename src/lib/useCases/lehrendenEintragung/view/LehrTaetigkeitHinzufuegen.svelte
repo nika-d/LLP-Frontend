@@ -2,37 +2,49 @@
 	import AutoComplete from '$lib/uiComponents/AutoComplete/AutoComplete.svelte'
 	import lehrendenEintragungTexts from '$lib/uiTexts/lehrendenEintragung.json'
 	import allgemeinTexts from '$lib/uiTexts/allgemein.json'
-
 	import ProgressIndicator from '$lib/uiComponents/ProgressIndicator.svelte'
 	import { ApiStatusModel } from '$lib/models/api/ApiStatusModel'
-	import { apiStatusContants } from '$lib/models/api/apiConstants'
+	import { apiStatusConstants } from '$lib/models/api/apiConstants'
 	import ErrorIndicator from '$lib/uiComponents/ErrorIndicator.svelte'
-	import AutoCompleteItemLehrendeType from '../viewModel/dataTypes/AutoCompleteItemLehrendeType'
-	import AutoCompleteItemEinrichtungType from '../viewModel/dataTypes/AutoCompleteItemEinrichtungType'
+	import type AutoCompleteItemLehrendeType from '../viewModel/dataTypes/AutoCompleteItemLehrendeType'
+	import type AutoCompleteItemEinrichtungType from '../viewModel/dataTypes/AutoCompleteItemEinrichtungType'
 	import LehrTaetigkeitenLayout from './LehrTaetigkeitenLayout.svelte'
-	import Lehrende from '../viewModel/Lehrende'
-	import AutoCompleteItemsEinrichtungen from '../viewModel/AutoCompleteItemsEinrichtungen'
+	import { getContext } from 'svelte'
+	import contextKeys from '../viewModel/contextModels'
+	import type Lehrende from '../viewModel/Lehrende'
+	import type AutoCompleteItemsEinrichtungen from '../viewModel/AutoCompleteItemsEinrichtungen'
+	import { multiPasteControl, multiPasteEntry } from '../viewModel/LehrTaetigkeitForMultiPaste'
+	import { get } from 'svelte/store'
+	import { LehrTaetigkeit } from '../viewModel/LehrTaetigkeit'
 
 	export let lehrTaetigkeitHinzufuegenAPI: (
 			lehrendeId: string,
 			einrichtungsId: string
 		) => ApiStatusModel,
-		lehrende: Lehrende,
-		einrichtungen: AutoCompleteItemsEinrichtungen
+		existingLehrende: Array<LehrTaetigkeit> = []
+
+	const lehrende: Lehrende = getContext(contextKeys.lehrende),
+		einrichtungen: AutoCompleteItemsEinrichtungen = getContext(
+			contextKeys.autoCompleteItemsEinrichtungen
+		)
 
 	let einrichtungCandidates: AutoCompleteItemEinrichtungType[] = [],
 		gewaehlteLehrende: AutoCompleteItemLehrendeType,
 		gewaehlteEinrichtung: AutoCompleteItemEinrichtungType,
-		apiStatus: ApiStatusModel,
-		einrichtungPlaceholderText: string
+		apiStatus: ApiStatusModel = new ApiStatusModel(apiStatusConstants.INITIAL),
+		einrichtungPlaceholderText: string,
+		nichtHinzufuegbar: AutoCompleteItemLehrendeType
 
-	reset()
+	function resetComponent() {
+		nichtHinzufuegbar = null
+		einrichtungPlaceholderText = lehrendenEintragungTexts.KEINE_EINRICHTUNG
+		apiStatus.reinitialize()
+	}
+	resetComponent()
 
-	function reset() {
+	function resetInput() {
 		gewaehlteLehrende = null
 		gewaehlteEinrichtung = null
-		einrichtungPlaceholderText = lehrendenEintragungTexts.KEINE_EINRICHTUNG
-		apiStatus = new ApiStatusModel(apiStatusContants.INITIAL)
 	}
 
 	function doApiCall() {
@@ -64,21 +76,53 @@
 		einrichtungAutoSelect()
 	}
 
-	$: if ($apiStatus.ok) reset()
+	$: if ($apiStatus.isOk) {
+		resetComponent()
+		resetInput()
+	}
+
+	$: if ($apiStatus.isInitial) resetComponent()
+
+	$: if ($apiStatus.isError && !nichtHinzufuegbar) nichtHinzufuegbar = gewaehlteLehrende
+
+	$: if (nichtHinzufuegbar && gewaehlteLehrende != nichtHinzufuegbar) {
+		resetComponent()
+		resetInput()
+	}
+
+	let multiPasteTaetigkeitAlreadyExists: boolean
+
+	$: {
+		let existingLehrtaetigkeitTypes = existingLehrende.map((lehrTaetigkeit) => get(lehrTaetigkeit))
+		multiPasteTaetigkeitAlreadyExists = existingLehrtaetigkeitTypes.some(
+			(lehrTaetigkeit) => lehrTaetigkeit.lehrendeName === $multiPasteEntry.lehrendeName
+		)
+	}
+
+	$: if (!multiPasteTaetigkeitAlreadyExists) {
+		gewaehlteLehrende = $lehrende.find(
+			(lehrender) => lehrender.model.vollerName === $multiPasteEntry.lehrendeName
+		)
+		gewaehlteEinrichtung = $multiPasteEntry.einrichtung
+	}
+
+	$: if (gewaehlteLehrende && gewaehlteEinrichtung && $multiPasteControl) doApiCall()
 </script>
 
 <LehrTaetigkeitenLayout lehrendeOverflow="visible" einrichtungOverflow="visible">
 	<span slot="errors">
-		{#if $apiStatus.error}
+		{#if $apiStatus.isError}
 			<ErrorIndicator fehlerText={$apiStatus.errorMessage} />
 		{/if}
 	</span>
-	<div slot="lehrende">
+	<div class="lehrendenSelectInput" slot="lehrende">
 		<AutoComplete
 			bind:selectedItem={gewaehlteLehrende}
 			items={$lehrende}
 			placeholder={lehrendenEintragungTexts.LEHRENDE}
 			width="8rem"
+			bubbleFocus
+			on:focus={resetComponent}
 		/>
 	</div>
 	<span slot="einrichtung">
@@ -94,8 +138,15 @@
 		class="d-inline-block button-span flex-columns d-flex align-items-center justify-content-center"
 		slot="action1"
 	>
-		{#if !$apiStatus.pending}
-			<button on:click={reset} class="btn btn-xs btn-ghost" type="button">
+		{#if !$apiStatus.isPending}
+			<button
+				on:click={() => {
+					resetComponent()
+					resetInput()
+				}}
+				class="btn btn-xs btn-ghost"
+				type="button"
+			>
 				<span class="material-icons" title={allgemeinTexts.ABBRECHEN}>
 					{allgemeinTexts.ABBRECHEN_ICON}
 				</span>
@@ -106,7 +157,7 @@
 		class="d-inline-block button-span flex-columns d-flex align-items-center justify-content-center"
 		slot="action2"
 	>
-		{#if $apiStatus.pending}
+		{#if $apiStatus.isPending}
 			<ProgressIndicator />
 		{:else}
 			<button on:click={doApiCall} class="btn btn-xs btn-ghost" type="button">

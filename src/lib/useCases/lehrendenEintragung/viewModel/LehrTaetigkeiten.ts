@@ -4,6 +4,7 @@ import type { Stores } from '$lib/common/SvelteStoreTypeDeclarations'
 
 export class LehrTaetigkeiten extends DerivedItemsStore<LehrTaetigkeit> {
 	public readonly hinzufuegenPerApi
+	public readonly deletePerApi
 
 	public constructor(stores: Stores, derivingFunction) {
 		super(stores, derivingFunction)
@@ -16,5 +17,9 @@ export class LehrTaetigkeiten extends DerivedItemsStore<LehrTaetigkeit> {
 			function (a, b) {
 				return lehrTaetigkeitenModel.hinzufuegen(a, b)
 			}
+
+		this.deletePerApi = function (lehrtaetigkeitId) {
+			return lehrTaetigkeitenModel.delete(lehrtaetigkeitId)
+		}
 	}
 }

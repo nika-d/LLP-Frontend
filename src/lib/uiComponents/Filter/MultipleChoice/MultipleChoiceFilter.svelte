@@ -3,6 +3,8 @@
 	import Checkbox from '$lib/uiComponents/Checkbox.svelte'
 	import filterTexts from '$lib/uiTexts/filter.json'
 	import Filter from '../Filter'
+	import tags from '../../../../../cypress/support/data-cy'
+
 	import mapChoicesToUniqueChoiceViewsModels from './mapChoicesToUniqueChoiceViewsModels'
 
 	export let caption: string,
@@ -59,6 +61,7 @@
 
 			{#each possibleChoicesUnique as option, i}
 				<div
+					data-cy={tags.MULTIPLE_CHOICE_FILTER_OPTION}
 					class="dropdown-item"
 					data-filter-target={(caption + '-' + option).toLowerCase().replace(' ', '')}
 					on:click={() => checkboxes[i].toggle()}

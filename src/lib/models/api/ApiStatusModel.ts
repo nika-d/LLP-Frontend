@@ -1,9 +1,12 @@
 import { WritableStore } from '$lib/common/WritableStore'
 import { ApiStatusType } from './ApiStatusType'
-import { apiStatusContants } from './apiConstants'
+import { apiStatusConstants } from './apiConstants'
 
 export class ApiStatusModel extends WritableStore<ApiStatusType> {
-	constructor(statusCode: apiStatusContants = apiStatusContants.PENDING, errorMessage = '') {
+	constructor(statusCode: apiStatusConstants = apiStatusConstants.PENDING, errorMessage = '') {
 		super(new ApiStatusType(statusCode, errorMessage))
+	}
+	public reinitialize() {
+		this.set(new ApiStatusType(apiStatusConstants.INITIAL, ''))
 	}
 }

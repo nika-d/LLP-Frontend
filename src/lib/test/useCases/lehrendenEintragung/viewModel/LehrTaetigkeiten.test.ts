@@ -3,13 +3,12 @@ import { get } from 'svelte/store'
 import type { LehrTaetigkeitType } from '$lib/useCases/lehrendenEintragung/viewModel/dataTypes/LehrTaetigkeitType'
 import type { LehrTaetigkeitenModel } from '$lib/models/LehrTaetigkeitenModel'
 import { LehrTaetigkeiten } from '$lib/useCases/lehrendenEintragung/viewModel/LehrTaetigkeiten'
-import { createLehrTaetigkeitenModel } from '../../../models/testData/createLehrTaetigkeitenModel'
-
+import { createLehrTaetigkeitenModel } from '$lib/test/models/testData/createLehrTaetigkeitenModel'
 import { createLehrTaetigkeitenTestDataViewModel } from '../testData/createLehrTaetigkeitenTestDataViewModel'
 import type { LehrTaetigkeitModel } from '$lib/models/LehrTaetigkeitModel'
-import { delay } from '../../../utils'
-import { vi, describe, it, beforeEach, expect} from 'vitest'
-import assertionConstants from "../../../models/testData/assertionConstants"
+import { delay } from '$lib/test/utils'
+import assertionConstants from '$lib/test/models/testData/assertionConstants'
+import { vi, describe, it, expect } from 'vitest'
 
 describe('LehrTätigkeiten ViewModel Factory', function () {
 	let lehrTaetigkeitenModel: LehrTaetigkeitenModel
@@ -22,10 +21,6 @@ describe('LehrTätigkeiten ViewModel Factory', function () {
 
 	describe('factory', function () {
 		it('should create a derived store', function () {
-
-			const lehrenderName = assertionConstants.PERSON_F_VOLLER_NAME,
-				lehrenderEinrichtungen = assertionConstants.PERSON_F_EINRICHTUNGS_IDS
-
 			expect(lehrTaetigkeiten).toBeInstanceOf(LehrTaetigkeiten)
 			expect(lehrTaetigkeiten.hinzufuegenPerApi).toBeInstanceOf(Function)
 
@@ -34,13 +29,11 @@ describe('LehrTätigkeiten ViewModel Factory', function () {
 			expect(lehrTaetigkeitenObject.length).toBe(3)
 
 			const lehrTaetigkeit1: LehrTaetigkeitType = get(lehrTaetigkeitenObject[1])
-			expect(lehrTaetigkeit1.lehrendeName).toBe(lehrenderName)
+			expect(lehrTaetigkeit1.lehrendeName).toBe(assertionConstants.PERSON_F_VOLLER_NAME)
 			expect(lehrTaetigkeit1.einrichtung.id).toBe('120')
 			expect(lehrTaetigkeit1.einrichtung.label).toBe(
 				'CC05, I.f. Laboratoriumsmedizin, klinische Chemie und Pathobiochemie, CBF/CCM/CVK'
 			)
-			expect(lehrTaetigkeit1.einrichtungAutocompleteCandidates).toContainEqual(lehrenderEinrichtungen)
-			expect(lehrenderEinrichtungen).toContainEqual( lehrTaetigkeit1.einrichtungAutocompleteCandidates)
 		})
 	})
 	describe('Derived e2e', function () {
@@ -70,7 +63,7 @@ describe('LehrTätigkeiten ViewModel Factory', function () {
 	describe('constructor', function () {
 		it('should forward API call to model object with correct this binding', function () {
 			lehrTaetigkeitenModel.hinzufuegen = vi.fn()
-			lehrTaetigkeiten.hinzufuegenPerApi(1n, 2n)
+			lehrTaetigkeiten.hinzufuegenPerApi('1', '2')
 			expect(lehrTaetigkeitenModel.hinzufuegen).toHaveBeenCalledTimes(1)
 			console.log(
 				'this binding only testable by hand, set breakpoint here and debug, ' +

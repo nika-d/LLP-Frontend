@@ -3,5 +3,8 @@
 	"KEINE": "Keine",
 	"MEHRERE": "Mehrere...",
 	"KEINE_OPTIONEN": "Keine Optionen",
-	"AUSWAHL_UMKEHREN": "Auswahl umkehren"
+	"AUSWAHL_UMKEHREN": "Auswahl umkehren",
+	"ZEITSPANNE": "Zeitspanne",
+	"STARTDATE": "Start von",
+	"ENDDATE": "Ende bis"
 }

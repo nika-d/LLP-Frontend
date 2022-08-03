@@ -4,7 +4,7 @@ import type { LehrTaetigkeitModelType } from '$lib/models/dataTypes/LehrTaetigke
 import { LehrTaetigkeitenModel } from '$lib/models/LehrTaetigkeitenModel'
 import { createLehrTaetigkeitenModel } from './testData/createLehrTaetigkeitenModel'
 import { delay } from '../utils'
-import { apiStatusContants } from '$lib/models/api/apiConstants'
+import { apiStatusConstants } from '$lib/models/api/apiConstants'
 import a from './testData/assertionConstants'
 
 describe('LehrTätigkeiten Model', function () {
@@ -14,7 +14,7 @@ describe('LehrTätigkeiten Model', function () {
 
 			expect(lehrtaetigkeiten).toHaveProperty('subscribe')
 			expect(lehrtaetigkeiten).toHaveProperty('hinzufuegen')
-			expect(lehrtaetigkeiten).toHaveProperty('loeschen')
+			expect(lehrtaetigkeiten).toHaveProperty('delete')
 
 			const testItemStoredValues: LehrTaetigkeitModel[] = get(lehrtaetigkeiten)
 			expect(testItemStoredValues.length).toBe(3)
@@ -31,7 +31,7 @@ describe('LehrTätigkeiten Model', function () {
 			const apiStatusModel = lehrtaetigkeiten.hinzufuegen('7', '40')
 			await delay(20)
 
-			expect(get(apiStatusModel).statusCode).toBe(apiStatusContants.OK)
+			expect(get(apiStatusModel).statusCode).toBe(apiStatusConstants.OK)
 
 			const lehrtaetigkeitenObject: LehrTaetigkeitModel[] = get(lehrtaetigkeiten)
 			expect(lehrtaetigkeitenObject.length).toBe(1)
@@ -44,9 +44,10 @@ describe('LehrTätigkeiten Model', function () {
 			expect(lehrtaetigkeitModelType.id).toBe('27')
 		})
 
-		test('should löschen', function () {
+		test('should delete', function () {
 			const lehrtaetigkeiten = createLehrTaetigkeitenModel()
-			lehrtaetigkeiten.loeschen('1')
+			expect(get(lehrtaetigkeiten).length).toBe(3)
+			lehrtaetigkeiten.delete('1')
 
 			const lehrtaetigkeitenObject: LehrTaetigkeitModel[] = get(lehrtaetigkeiten)
 			expect(lehrtaetigkeitenObject.length).toBe(2)

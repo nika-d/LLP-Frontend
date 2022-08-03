@@ -16,5 +16,8 @@
 	"LEHRENDEN": "Lehrenden",
 	"LEHRENDEN_EINTRAGUNG": "Lehrenden-Eintragung",
 
-	"LEHRENDE_FEHLT": "Keine Lehrenden"
+	"LEHRENDE_FEHLT": "Keine Lehrenden",
+
+	"MULTI_PASTE_INSERT": "Bei allen einfügen",
+	"MULTI_PASTE_SAVE": "Bei allen speichern"
 }

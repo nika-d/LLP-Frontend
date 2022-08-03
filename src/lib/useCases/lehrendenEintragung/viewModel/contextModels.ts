@@ -1,2 +1,6 @@
-export const lehrende = {},
-	autoCompleteItemsEinrichtungen = {}
+const contextKeys = {
+	lehrende: 'Lehrende',
+	autoCompleteItemsEinrichtungen: 'AutoCompleteItemsEinrichtungen'
+}
+
+export default contextKeys

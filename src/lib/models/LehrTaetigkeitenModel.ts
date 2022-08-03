@@ -11,26 +11,17 @@ export class LehrTaetigkeitenModel extends ModelsStore<
 > {
 	private terminId: string
 	public hinzufuegen: (personId: string, einrichtungsId: string) => ApiStatusModel
+	public delete: (lehrtaetigkeitsId: string) => ApiStatusModel
 
 	constructor(items: LehrTaetigkeitModel[], terminId: string) {
 		super(items)
 		this.terminId = terminId
 
-		// notwendig für das this-Binding , damit die Methode wie Variable innerhalb von View Models herumgereicht
+		// notwendig für das this-Binding, damit die Methode wie Variable innerhalb von View Models herumgereicht
 		// werden kann, und dennoch innerhalb der Methode die Bindung zur Termin-ID erhalten bleibt
 		// vgl.: https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 		this.hinzufuegen = hinzufuegen.bind(this)
-	}
-
-	public loeschen(lehrtaetigkeitsId: string): void {
-		this.update((lehrTaetigkeiten) => {
-			const index = lehrTaetigkeiten.findIndex((lehrTaetigkeit) => {
-				const lehrTaetigkeitObject: LehrTaetigkeitModelType = get(lehrTaetigkeit)
-				return lehrTaetigkeitObject.id == lehrtaetigkeitsId
-			})
-			lehrTaetigkeiten.splice(index, 1)
-			return lehrTaetigkeiten
-		})
+		this.delete = loeschen.bind(this)
 	}
 }
 
@@ -52,4 +43,21 @@ function hinzufuegen(personId: string, einrichtungsId: string): ApiStatusModel {
 	return globalObject.container
 		.getApiEvents()
 		.lehrtaetigkeitHinzufuegen(this.terminId, personId, einrichtungsId, callback.bind(this))
+}
+
+function loeschen(lehrtaetigkeitsId: string): ApiStatusModel {
+	function callback(deletableLehrtaetigkeitId) {
+		this.update((lehrTaetigkeiten) => {
+			const index = lehrTaetigkeiten.findIndex((lehrTaetigkeit) => {
+				const lehrTaetigkeitObject: LehrTaetigkeitModelType = get(lehrTaetigkeit)
+				return lehrTaetigkeitObject.id == deletableLehrtaetigkeitId
+			})
+			lehrTaetigkeiten.splice(index, 1)
+			return lehrTaetigkeiten
+		})
+	}
+
+	return globalObject.container
+		.getApiEvents()
+		.deleteLehrtaetigkeit(lehrtaetigkeitsId, callback.bind(this))
 }

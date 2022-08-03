@@ -1,4 +1,4 @@
-import EinrichtungModelType from '$lib/models/dataTypes/EinrichtungModelType'
+import EinrichtungModelType from '$lib/models/dataTypes/Einrichtung/EinrichtungModelType'
 import EinrichtungModel from '$lib/models/EinrichtungModel'
 import EinrichtungenModel from '$lib/models/EinrichtungenModel'
 

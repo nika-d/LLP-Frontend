@@ -1,4 +1,4 @@
-export const enum apiStatusContants {
+export const enum apiStatusConstants {
 	INITIAL = 'INITIAL',
 	OK = 'OK',
 	PENDING = 'PENDING',
